@@ -12,20 +12,26 @@ const Login = () => {
 
   const handleSubmit = () => {
     //Validate form
-    checkValidation(email, password);
-    console.log(email.current.value);
-    console.log(password.current.value);
-
-    const message = checkValidation(
-      email.current.value,
-      password.current.value
-    );
+    let message;
+    if (isSignInForm) {
+      message = checkValidation(
+        isSignInForm,
+        email.current.value,
+        password.current.value
+      );
+    } else {
+      message = checkValidation(
+        isSignInForm,
+        email.current.value,
+        password.current.value,
+        name.current.value
+      );
+    }
     setErrorMessage(message);
   };
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
-    console.log(isSignInForm);
   };
 
   return (
@@ -67,7 +73,7 @@ const Login = () => {
           className="border border-black p-4 my-4 w-full bg-gray-700"
           placeholder="Password"
         />
-        <p className="text-red-500">{errorMessage}</p>
+        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
         <br />
         <button
           className="bg-red-600 text-slate-100 font-medium p-4 my-4 rounded-lg w-full"
