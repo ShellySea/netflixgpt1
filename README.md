@@ -72,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Users
 
 saily.jadhav@gmail.com: Saily1234
+saily.jadhav@spglobal.com: Saily1234
+foo@gmail.com: Foo12345
+shellysea@gmail.com: Shelly123
+om@gmail.com: Omkar1234
