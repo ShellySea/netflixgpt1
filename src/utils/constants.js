@@ -3,3 +3,12 @@ export const netlfix_logo =
 
 export const USER_AVATAR =
   "https://occ-0-465-444.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MTI3MzE0NGQ2MWUyMTdkOTBmMWYxYTUyZDA2NjBhYSIsInN1YiI6IjY1N2UyOTE0OGYyNmJjMTRjZDc1MTg3OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hHGc7CGyfmV7tNVRGW_AQdwEMRU0hQpHEtrKQ-yeiZg",
+  },
+};
