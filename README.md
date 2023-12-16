@@ -76,3 +76,5 @@ saily.jadhav@spglobal.com: Saily1234
 foo@gmail.com: Foo12345
 shellysea@gmail.com: Shelly123
 om@gmail.com: Omkar1234
+mailstosaily@netflix.com: Saily1234
+tom@gmail.com: Tom@1234
