@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { API_OPTIONS } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addTrailer } from "../utils/movieSlice";
 
 const VideoBackground = (props) => {
   const { movieId } = props;
+  const dispatch = useDispatch();
 
-  const [trailerID, setTrailerID] = useState(null);
+  // const [trailerID, setTrailerID] = useState(null);
+  const trailer = useSelector((store) => store.movies?.trailer);
+  console.log(trailer);
   // fetch trailer - make api => requires movieID
 
   const getMovieVideo = async () => {
@@ -16,7 +21,8 @@ const VideoBackground = (props) => {
     const filteredData = json.results.filter((data) => data.type === "Trailer");
     const trailer = filteredData.length ? filteredData[0] : json.results[0];
     console.log(trailer);
-    setTrailerID(trailer.key);
+    // setTrailerID(trailer.key);
+    dispatch(addTrailer(trailer));
   };
 
   useEffect(() => {
@@ -29,7 +35,9 @@ const VideoBackground = (props) => {
         width="560"
         height="315"
         src={
-          "https://www.youtube.com/embed/" + trailerID + "?si=je4v2QakKMMkjFeY"
+          "https://www.youtube.com/embed/" +
+          trailer?.key +
+          "?si=je4v2QakKMMkjFeY"
         }
         title="YouTube video player"
         frameBorder="0"
