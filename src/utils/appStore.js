@@ -9,6 +9,4 @@ const appStore = configureStore({
   },
 });
 
-console.log(appStore);
-
 export default appStore;
