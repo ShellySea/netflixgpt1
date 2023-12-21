@@ -1,33 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailer } from "../utils/movieSlice";
+import React from "react";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+import { useSelector } from "react-redux";
 
 const VideoBackground = (props) => {
-  const { movieId } = props;
-  const dispatch = useDispatch();
-
-  // const [trailerID, setTrailerID] = useState(null);
   const trailer = useSelector((store) => store.movies?.trailer);
-  console.log(trailer);
-  // fetch trailer - make api => requires movieID
 
-  const getMovieVideo = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/466420/videos",
-      API_OPTIONS
-    );
-    const json = await data.json();
-    const filteredData = json.results.filter((data) => data.type === "Trailer");
-    const trailer = filteredData.length ? filteredData[0] : json.results[0];
-    console.log(trailer);
-    // setTrailerID(trailer.key);
-    dispatch(addTrailer(trailer));
-  };
-
-  useEffect(() => {
-    getMovieVideo();
-  }, []);
+  useMovieTrailer(props.movieId);
 
   return (
     <div>
