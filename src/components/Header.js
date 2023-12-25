@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/loginSlice";
 import { netlfix_logo } from "../utils/constants";
+import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -52,11 +53,22 @@ const Header = () => {
       });
   };
 
+  const handleGpt = () => {
+    console.log("GPT");
+    dispatch(toggleGPTSearchView());
+  };
+
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
       <img className="w-44" src={netlfix_logo} alt="logo" />
       {user && (
         <div className="flex p-2">
+          <button
+            className="bg-purple-800 text-white mx-4 my-2 px-4 py-2 rounded-lg hover:bg-purple-500"
+            onClick={handleGpt}
+          >
+            Search GPT
+          </button>
           <img className="w-12 h-12" alt="signoutIcon" src={user?.photoURL} />
           <button className="cursor-pointer text-white" onClick={handleSignOut}>
             Signout
