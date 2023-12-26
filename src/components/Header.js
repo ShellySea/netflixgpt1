@@ -4,7 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/loginSlice";
-import { netlfix_logo } from "../utils/constants";
+import { SUPPORTED_LANGUAGES, netlfix_logo } from "../utils/constants";
 import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
@@ -54,8 +54,11 @@ const Header = () => {
   };
 
   const handleGpt = () => {
-    console.log("GPT");
     dispatch(toggleGPTSearchView());
+  };
+
+  const handleLanguage = () => {
+    console.log("lan");
   };
 
   return (
@@ -63,6 +66,16 @@ const Header = () => {
       <img className="w-44" src={netlfix_logo} alt="logo" />
       {user && (
         <div className="flex p-2">
+          <select
+            className="p-2 m-2 bg-gray-200 text-black"
+            onChange={handleLanguage}
+          >
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
           <button
             className="bg-purple-800 text-white mx-4 my-2 px-4 py-2 rounded-lg hover:bg-purple-500"
             onClick={handleGpt}
