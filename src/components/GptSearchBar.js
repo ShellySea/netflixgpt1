@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
 
 const GptSearchBar = () => {
-  const [input, setInput] = useState("");
+  const searchText = useRef(null);
 
   const languageKey = useSelector((state) => state.language.lang);
 
   const handleGPTSearchClick = () => {
-    console.log(input);
+    console.log(searchText.current.value);
   };
 
   return (
@@ -18,11 +18,10 @@ const GptSearchBar = () => {
         onSubmit={(e) => e.preventDefault()}
       >
         <input
+          ref={searchText}
           type="text"
-          value={input}
           className="p-4 m-4 col-span-9 shadow appearance-none border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder={lang[languageKey].gptSearchPlaceholder}
-          onInput={(e) => setInput(e.target.value)}
         />
         <button
           className="col-span-3 m-4 button rounded-lg py-2 px-4 bg-red-700 text-white hover:bg-red-600"
