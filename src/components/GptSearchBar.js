@@ -1,14 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
+// import openai from "../utils/openAI";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
 
   const languageKey = useSelector((state) => state.language.lang);
 
-  const handleGPTSearchClick = () => {
+  const handleGPTSearchClick = async () => {
+    let searchTerm = searchText.current.value;
+
     console.log(searchText.current.value);
+
+    const gptQuery =
+      "Act as a movie recommendation system and suggest some movies for the query" +
+      searchTerm +
+      ". Only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Welcome, Shole, Don and Koi mil gaya";
+
+    // const gptResults = await openai.chat.completions.create({
+    //   messages: [{ role: "user", content: gptQuery }],
+    //   model: "gpt-3.5-turbo",
+    // });
+
+    // console.log(gptResults.choices);
+
+    /* Hard coding GPT Results since call for free GPT apis have been exhausted */
+    const gptResults = [
+      {
+        index: 0,
+        message: {
+          content: "Andaaz Apna Apna, Hera Pheri, Padosan, Welcome, Golmal",
+        },
+      },
+    ];
   };
 
   return (
