@@ -85,7 +85,7 @@ const Header = () => {
             className="bg-purple-800 text-white mx-4 my-2 px-4 py-2 rounded-lg hover:bg-purple-500"
             onClick={handleGpt}
           >
-            Search GPT
+            {showGPTSelect.showGPT ? "Home page" : "Search GPT"}
           </button>
           <img className="w-12 h-12" alt="signoutIcon" src={user?.photoURL} />
           <button className="cursor-pointer text-white" onClick={handleSignOut}>
