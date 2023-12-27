@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/loginSlice";
 import { SUPPORTED_LANGUAGES, netlfix_logo } from "../utils/constants";
 import { toggleGPTSearchView } from "../utils/gptSlice";
+import { selectLanguage } from "../utils/languageSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -57,8 +58,8 @@ const Header = () => {
     dispatch(toggleGPTSearchView());
   };
 
-  const handleLanguage = () => {
-    console.log("lan");
+  const handleLanguage = (e) => {
+    dispatch(selectLanguage(e.target.value));
   };
 
   return (
