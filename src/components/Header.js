@@ -15,6 +15,8 @@ const Header = () => {
 
   const user = useSelector((store) => store.login);
 
+  const showGPTSelect = useSelector((state) => state.gpt);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -67,16 +69,18 @@ const Header = () => {
       <img className="w-44" src={netlfix_logo} alt="logo" />
       {user && (
         <div className="flex p-2">
-          <select
-            className="p-2 m-2 bg-gray-200 text-black"
-            onChange={handleLanguage}
-          >
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key={lang.identifier} value={lang.identifier}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
+          {showGPTSelect.showGPT && (
+            <select
+              className="p-2 m-2 bg-gray-200 text-black"
+              onChange={handleLanguage}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             className="bg-purple-800 text-white mx-4 my-2 px-4 py-2 rounded-lg hover:bg-purple-500"
             onClick={handleGpt}
