@@ -52,7 +52,12 @@ const GptSearchBar = () => {
 
     const data = fetchedMovieList.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(data);
-    dispatch(showSearchedMovies(tmdbResults));
+    dispatch(
+      showSearchedMovies({
+        movieNames: fetchedMovieList,
+        movieResults: tmdbResults,
+      })
+    );
   };
 
   return (
