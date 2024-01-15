@@ -43,13 +43,12 @@ const GptSearchBar = () => {
       {
         index: 0,
         message: {
-          content: "Encanto, Hera Pheri, Elemental, Welcome, Titanic",
+          content: "Harry, Titanic, Mean, Welcome, batman",
         },
       },
     ];
 
     let fetchedMovieList = gptResults[0]?.message?.content.split(",");
-
     const data = fetchedMovieList.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(data);
     dispatch(
