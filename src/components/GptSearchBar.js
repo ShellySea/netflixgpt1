@@ -43,7 +43,7 @@ const GptSearchBar = () => {
       {
         index: 0,
         message: {
-          content: "Andaaz Apna Apna, Hera Pheri, Padosan, Welcome, Golmal",
+          content: "Encanto, Hera Pheri, Elemental, Welcome, Titanic",
         },
       },
     ];
