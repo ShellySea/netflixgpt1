@@ -65,8 +65,8 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      <img className="w-44" src={netlfix_logo} alt="logo" />
+    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row md:justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={netlfix_logo} alt="logo" />
       {user && (
         <div className="flex p-2">
           {showGPTSelect.showGPT && (
