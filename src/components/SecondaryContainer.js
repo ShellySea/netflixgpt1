@@ -12,7 +12,7 @@ function SecondaryContainer() {
 
   return (
     <div className=" bg-black">
-      <div className="-mt-72 pl-12 relative z-20">
+      <div className="mt-0 md:-mt-72 pl-12 relative z-20">
         <Movielist genre={"Now Playing"} movies={nowPlayingMovies} />
         <Movielist genre={"Top Rated"} movies={topRatedMovies} />
         <Movielist genre={"Popular"} movies={popularMovies} />
