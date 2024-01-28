@@ -5,7 +5,7 @@ const Movielist = (props) => {
   const { genre, movies } = props;
   return (
     <>
-      <h1 className="sm:text-lg md:text-xl font-bold px-4 py-1 text-white">
+      <h1 className="text-lg md:text-xl font-bold px-4 py-1 text-white">
         {genre}
       </h1>
       <div className="overflow-x-scroll scrollbar-hide">

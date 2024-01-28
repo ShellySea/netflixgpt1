@@ -10,7 +10,7 @@ const MovieCard = (props) => {
   }
   return (
     <div>
-      <div className="box-border h-auto p-4 w-48 hover:scale-110 transition duration-500 cursor-pointer">
+      <div className="w-36 md:w-48 box-border h-auto p-4 hover:scale-110 transition duration-500 cursor-pointer">
         <img
           alt={title}
           src={poster_path ? IMG_CDN_URL + poster_path : poster_path1}
