@@ -68,7 +68,7 @@ const Header = () => {
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row md:justify-between">
       <img className="w-44 mx-auto md:mx-0" src={netlfix_logo} alt="logo" />
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 justify-between">
           {showGPTSelect.showGPT && (
             <select
               className="p-2 m-2 bg-gray-200 text-black"
@@ -87,7 +87,11 @@ const Header = () => {
           >
             {showGPTSelect.showGPT ? "Home page" : "Search GPT"}
           </button>
-          <img className="w-12 h-12" alt="signoutIcon" src={user?.photoURL} />
+          <img
+            className="hidden md:block w-12 h-12"
+            alt="signoutIcon"
+            src={user?.photoURL}
+          />
           <button className="cursor-pointer text-white" onClick={handleSignOut}>
             Signout
           </button>
